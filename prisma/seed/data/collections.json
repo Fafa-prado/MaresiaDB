@@ -1,0 +1,32 @@
+[
+	{
+		"id": 1,
+		"title": "Maré Serena",
+		"description": "Coleção Maré Serena 2025",
+		"image": ""
+	},
+	{
+		"id": 2,
+		"title": "Floral Atlântico",
+		"description": "Coleção Floral Atlântico 2025",
+		"image": ""
+	},
+	{
+		"id": 3,
+		"title": "Ecos do Mar",
+		"description": "Coleção Ecos do Mar 2025",
+		"image": ""
+	},
+	{
+		"id": 4,
+		"title": "Pérola Salgada",
+		"description": "Coleção Pérola Salgada 2025",
+		"image": ""
+	},
+	{
+		"id": 5,
+		"title": "Sem coleção",
+		"description": "Teste",
+		"image": ""
+	}
+]

@@ -1,0 +1,9 @@
+### CREATE
+POST http://localhost:3000/reviews
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "comentario": "Muito bom, recomendo!",
+  "estrelas": 5
+}

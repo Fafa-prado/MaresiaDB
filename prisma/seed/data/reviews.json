@@ -1,0 +1,338 @@
+[
+    {
+      "productId": 1,
+      "userId": 1,
+      "comentario": "Adorei a bata! O tecido é super leve e perfeito para usar na praia. Ficou lindo sobre o biquíni.",
+      "estrelas": 5
+    },
+    {
+      "productId": 1,
+      "userId": 2,
+      "comentario": "Produto de qualidade, mas achei um pouco transparente. Recomendo usar com algo por baixo.",
+      "estrelas": 4
+    },
+    {
+      "productId": 1,
+      "userId": 3,
+      "comentario": "Excelente caimento! Comprei tamanho M e serviu perfeitamente. Muito elegante.",
+      "estrelas": 5
+    },
+    {
+      "productId": 2,
+      "userId": 1,
+      "comentario": "Canga linda e versátil. Uso tanto na praia quanto como xale. Material de ótima qualidade.",
+      "estrelas": 5
+    },
+    {
+      "productId": 2,
+      "userId": 4,
+      "comentario": "Gostei da cor, mas esperava que fosse um pouco maior.",
+      "estrelas": 3
+    },
+    {
+      "productId": 3,
+      "userId": 2,
+      "comentario": "Lenço muito bonito! Uso no cabelo e fica super estiloso. Chegou rápido.",
+      "estrelas": 5
+    },
+    {
+      "productId": 3,
+      "userId": 5,
+      "comentario": "Produto bom, mas achei o preço um pouco alto para o tamanho.",
+      "estrelas": 3
+    },
+    {
+      "productId": 4,
+      "userId": 3,
+      "comentario": "Perfeita! O tecido seca rapidinho e é super confortável. Comprei duas cores.",
+      "estrelas": 5
+    },
+    {
+      "productId": 4,
+      "userId": 1,
+      "comentario": "Ótima saída de praia, combina com tudo. Recomendo!",
+      "estrelas": 5
+    },
+    {
+      "productId": 5,
+      "userId": 4,
+      "comentario": "Vestido lindo e diferente! A estampa é única. Recebi muitos elogios.",
+      "estrelas": 5
+    },
+    {
+      "productId": 5,
+      "userId": 2,
+      "comentario": "Gostei do estilo, mas o tecido amassa fácil. No geral, vale a pena.",
+      "estrelas": 4
+    },
+    {
+      "productId": 6,
+      "userId": 5,
+      "comentario": "Biquíni maravilhoso! A estampa é linda e a lycra tem ótima qualidade. Super confortável.",
+      "estrelas": 5
+    },
+    {
+      "productId": 6,
+      "userId": 1,
+      "comentario": "Adorei as cores! Comprei P e ficou perfeito. A sustentação é boa.",
+      "estrelas": 5
+    },
+    {
+      "productId": 6,
+      "userId": 3,
+      "comentario": "Bom biquíni, mas achei que o top poderia ter mais sustentação para quem usa tamanho maior.",
+      "estrelas": 4
+    },
+    {
+      "productId": 7,
+      "userId": 2,
+      "comentario": "Cor vibrante e linda! O material é macio e absorve bem. Muito satisfeita.",
+      "estrelas": 5
+    },
+    {
+      "productId": 7,
+      "userId": 4,
+      "comentario": "Canga de ótima qualidade, mas a cor desbotou um pouco após algumas lavagens.",
+      "estrelas": 3
+    },
+    {
+      "productId": 8,
+      "userId": 5,
+      "comentario": "Linda demais! A cor azul é exatamente como na foto. Tecido fresquinho.",
+      "estrelas": 5
+    },
+    {
+      "productId": 8,
+      "userId": 1,
+      "comentario": "Produto bom, mas demorou um pouco para chegar. No mais, estou satisfeita.",
+      "estrelas": 4
+    },
+    {
+      "productId": 9,
+      "userId": 3,
+      "comentario": "Cor maravilhosa! O verde é vibrante e o tecido é ótimo. Super recomendo!",
+      "estrelas": 5
+    },
+    {
+      "productId": 9,
+      "userId": 2,
+      "comentario": "Gostei muito, mas só tinha tamanho G disponível. Ficou um pouco largo em mim.",
+      "estrelas": 4
+    },
+    {
+      "productId": 10,
+      "userId": 4,
+      "comentario": "Vestido lindo para o verão! A cor é alegre e o caimento é perfeito. Amei!",
+      "estrelas": 5
+    },
+    {
+      "productId": 10,
+      "userId": 5,
+      "comentario": "Muito bonito, mas transparenta um pouco. Uso com uma lingerie nude.",
+      "estrelas": 4
+    },
+    {
+      "productId": 10,
+      "userId": 1,
+      "comentario": "Vestido maravilhoso! Usei em um evento e recebi vários elogios.",
+      "estrelas": 5
+    },
+    {
+      "productId": 11,
+      "userId": 2,
+      "comentario": "Elegante e confortável! O comprimento é perfeito. Estou apaixonada!",
+      "estrelas": 5
+    },
+    {
+      "productId": 11,
+      "userId": 3,
+      "comentario": "Lindo vestido, mas para quem é muito alta, fica na altura dos tornozelos.",
+      "estrelas": 4
+    },
+    {
+      "productId": 12,
+      "userId": 4,
+      "comentario": "Bolsa espaçosa e linda! Perfeita para levar para a praia. Recomendo!",
+      "estrelas": 5
+    },
+    {
+      "productId": 12,
+      "userId": 1,
+      "comentario": "Gostei, mas mancha fácil. Precisa ter cuidado.",
+      "estrelas": 3
+    },
+    {
+      "productId": 13,
+      "userId": 5,
+      "comentario": "Ótima bolsa! Cabe tudo que preciso. A cor é linda e o material é resistente.",
+      "estrelas": 5
+    },
+    {
+      "productId": 13,
+      "userId": 2,
+      "comentario": "Bolsa grande e prática. Uso para ir ao mercado também. Muito útil!",
+      "estrelas": 5
+    },
+    {
+      "productId": 14,
+      "userId": 3,
+      "comentario": "Chinelo lindo e confortável! Os detalhes em pérola são delicados.",
+      "estrelas": 5
+    },
+    {
+      "productId": 14,
+      "userId": 4,
+      "comentario": "Bonito, mas achei um pouco desconfortável para andar muito tempo.",
+      "estrelas": 3
+    },
+    {
+      "productId": 15,
+      "userId": 1,
+      "comentario": "O chinelo mais confortável que já tive! Parece que estou andando nas nuvens mesmo.",
+      "estrelas": 5
+    },
+    {
+      "productId": 15,
+      "userId": 5,
+      "comentario": "Super macio e confortável. Único problema é que suja fácil por ser bege.",
+      "estrelas": 4
+    },
+    {
+      "productId": 16,
+      "userId": 2,
+      "comentario": "Design moderno e muito confortável! Adorei o estilo puffer.",
+      "estrelas": 5
+    },
+    {
+      "productId": 16,
+      "userId": 3,
+      "comentario": "Chinelo bom, mas achei que poderia ter mais numerações disponíveis.",
+      "estrelas": 4
+    },
+    {
+      "productId": 17,
+      "userId": 4,
+      "comentario": "Maiô lindo! A cor rosa é vibrante e a modelagem valoriza muito o corpo.",
+      "estrelas": 5
+    },
+    {
+      "productId": 17,
+      "userId": 1,
+      "comentario": "Excelente qualidade! A lycra é ótima e oferece boa sustentação.",
+      "estrelas": 5
+    },
+    {
+      "productId": 17,
+      "userId": 5,
+      "comentario": "Bonito, mas achei o corte das pernas um pouco alto para mim.",
+      "estrelas": 4
+    },
+    {
+      "productId": 18,
+      "userId": 2,
+      "comentario": "A estampa é linda demais! Comprei PP e serviu perfeitamente.",
+      "estrelas": 5
+    },
+    {
+      "productId": 18,
+      "userId": 3,
+      "comentario": "Maiô confortável e elegante. Uso para natação e é ótimo.",
+      "estrelas": 5
+    },
+    {
+      "productId": 19,
+      "userId": 4,
+      "comentario": "Saia maravilhosa! O tecido flui lindamente e a cor é perfeita.",
+      "estrelas": 5
+    },
+    {
+      "productId": 19,
+      "userId": 1,
+      "comentario": "Linda saia, mas amassa um pouco. Precisa passar depois de lavar.",
+      "estrelas": 4
+    },
+    {
+      "productId": 20,
+      "userId": 5,
+      "comentario": "Saia básica e versátil. Combina com tudo! Já comprei em outras cores.",
+      "estrelas": 5
+    },
+    {
+      "productId": 20,
+      "userId": 2,
+      "comentario": "Boa saia, mas achei o comprimento um pouco curto demais para mim.",
+      "estrelas": 3
+    },
+    {
+      "productId": 21,
+      "userId": 3,
+      "comentario": "Sandália linda e romântica! Os babados são delicados. Adorei!",
+      "estrelas": 5
+    },
+    {
+      "productId": 21,
+      "userId": 4,
+      "comentario": "Muito bonita, mas não é tão confortável para andar o dia todo.",
+      "estrelas": 3
+    },
+    {
+      "productId": 22,
+      "userId": 1,
+      "comentario": "Os detalhes em conchas são lindos! Super confortável para o dia a dia.",
+      "estrelas": 5
+    },
+    {
+      "productId": 22,
+      "userId": 5,
+      "comentario": "Sandália bonita e diferente. As conchas dão um toque especial.",
+      "estrelas": 5
+    },
+    {
+      "productId": 23,
+      "userId": 2,
+      "comentario": "Short básico e essencial! O tecido é fresco e confortável.",
+      "estrelas": 5
+    },
+    {
+      "productId": 23,
+      "userId": 3,
+      "comentario": "Bom short, mas transparenta um pouco. Uso com lingerie nude.",
+      "estrelas": 4
+    },
+    {
+      "productId": 24,
+      "userId": 4,
+      "comentario": "Adorei a estampa tropical! Fica lindo e é muito confortável.",
+      "estrelas": 5
+    },
+    {
+      "productId": 24,
+      "userId": 1,
+      "comentario": "Short bonito, mas o elástico da cintura poderia ser mais confortável.",
+      "estrelas": 3
+    },
+    {
+      "productId": 25,
+      "userId": 5,
+      "comentario": "Estampa moderna e juvenil! Meu filho adolescente adorou.",
+      "estrelas": 5
+    },
+    {
+      "productId": 25,
+      "userId": 2,
+      "comentario": "Bom short para o verão. O tecido é leve e as cores são vibrantes.",
+      "estrelas": 4
+    },
+    {
+      "productId": 26,
+      "userId": 3,
+      "comentario": "Sombrinha elegante e prática! Protege muito bem do sol.",
+      "estrelas": 5
+    },
+    {
+      "productId": 26,
+      "userId": 4,
+      "comentario": "Bonita, mas achei um pouco pesada para carregar o dia todo.",
+      "estrelas": 3
+    }
+  ]

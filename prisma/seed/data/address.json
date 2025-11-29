@@ -1,0 +1,12 @@
+[
+  {
+    "userId": 1,
+    "cep": "88058-000",
+    "cidade": "Florianópolis",
+    "estado": "SC",
+    "bairro": "Ingleses",
+    "rua": "Rua das Gaivotas",
+    "numero": "245",
+    "complemento": "Apartamento 301"
+  }
+]
