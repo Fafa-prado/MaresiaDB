@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Maria Silva",
+        "username": "maria.silva",
+        "password": "6903426",
+        "email": "maria.silva@email.com",
+        "birthdate": "1990-05-15T00:00:00.000Z",
+        "cpf": "123.456.789-01",
+        "gender": "Feminino",
+        "phone": "(11) 98765-4321"
+    },
+    {
+        "name": "Ana Costa",
+        "username": "ana.costa",
+        "password": "58301294",
+        "email": "ana.costa@email.com",
+        "birthdate": "1995-03-10T00:00:00.000Z",
+        "cpf": "345.678.901-23",
+        "gender": "Feminino",
+        "phone": "(21) 96543-2109"
+    },
+    {
+        "name": "Juliana Ferreira",
+        "username": "juliana.ferreira",
+        "password": "60241947",
+        "email": "juliana.ferreira@email.com",
+        "birthdate": "1993-07-18T00:00:00.000Z",
+        "cpf": "567.890.123-45",
+        "gender": "Feminino",
+        "phone": "(21) 94321-0987"
+    },
+    {
+        "name": "Camila Rodrigues",
+        "username": "camila.rodrigues",
+        "password": "60327841",
+        "email": "camila.rodrigues@email.com",
+        "birthdate": "1994-12-05T00:00:00.000Z",
+        "cpf": "789.012.345-67",
+        "gender": "Feminino",
+        "phone": "(21) 92109-8765"
+    },
+    {
+        "name": "Fernanda Souza",
+        "username": "fernanda.souza",
+        "password": "89021275",
+        "email": "fernanda.souza@email.com",
+        "birthdate": "1996-01-28T00:00:00.000Z",
+        "cpf": "901.234.567-89",
+        "gender": "Feminino",
+        "phone": "(21) 90987-6543"
+    }
+]

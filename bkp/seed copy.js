@@ -1,0 +1,606 @@
+import fs from 'fs';
+import mime from 'mime-types';
+import path from 'path';
+import { PrismaClient } from '#generated/prisma/index.js';
+
+const prisma = new PrismaClient();
+
+async function main() {
+	const dir = path.resolve('prisma/seed-product-images');
+
+	// Array de produtos
+	const produtos = [
+		{
+			"name": "Bata Branca",
+			"description": "Bata leve e elegante, perfeita para cobrir o corpo após o banho de mar ou piscina.",
+			"detailedDescription": "Confeccionada em tecido leve e fluido, esta bata oferece conforto e sofisticação. Ideal para usar como saída de praia ou em momentos de relaxamento, com caimento perfeito que valoriza o corpo.",
+			"price": 159.9,
+			"size": ["P", "M", "G"],
+			"color": "#ffffff",
+			"material": "Algodão",
+			"category": "bata",
+			"image1": "images/bata-branca-1.webp",
+			"image2": "images/bata-branca-2.webp",
+			"image3": "images/bata-branca-3.jpg",
+			"available": true,
+			"new": true,
+			"collectionId": 4
+		  },
+		  {
+			"name": "Canga Cinza",
+			"description": "Canga versátil em tom cinza, ideal para praia, piscina ou como acessório decorativo.",
+			"detailedDescription": "Feita em material macio e absorvente, esta canga é prática e estilosa. Pode ser usada como saída de praia, toalha ou até como xale leve para fins do dia.",
+			"price": 139.9,
+			"size": "",
+			"color": "#696969",
+			"material": "Poliéster",
+			"category": "canga",
+			"image1": "images/canga-cinza-1.webp",
+			"image2": "images/canga-cinza-2.webp",
+			"image3": "images/canga-cinza-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 4
+		  },
+		  {
+			"name": "Lenço Cinza",
+			"description": "Lenço estiloso e versátil para complementar looks de praia ou do dia a dia.",
+			"detailedDescription": "Confeccionado em tecido leve e arejado, este lenço pode ser usado no cabelo, como acessório no pescoço ou até como detalhe na bolsa. Perfeito para quem busca praticidade com estilo.",
+			"price": 79.9,
+			"size": "",
+			"color": "#696969",
+			"material": "Poliéster",
+			"category": "acessorio",
+			"image1": "images/lenço-cinza-1.webp",
+			"image2": "images/lenço-cinza-2.webp",
+			"image3": "images/lenço-cinza-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 4
+		  },
+		  {
+			"name": "Saída de Praia Preta",
+			"description": "Saída de praia preta, elegante e funcional para momentos à beira-mar ou piscina.",
+			"detailedDescription": "Feita em tecido leve e de secagem rápida, esta saída de praia oferece conforto e privacidade. Modelo atemporal que combina com qualquer maiô ou biquíni.",
+			"price": 69.9,
+			"size": ["P", "M", "G"],
+			"color": "#000000",
+			"material": "Algodão",
+			"category": "saida_praia",
+			"image1": "images/saida_de_praia_Preta_1.jpg",
+			"image2": "images/saida_de_praia_Preta_2.jpg",
+			"image3": "images/saida_de_praia_Preta_3.jpg",
+			"available": true,
+			"new": true,
+			"collectionId": 4
+		  },
+		  {
+			"name": "Vestido Manchado",
+			"description": "Vestido com estampa manchada, ideal para looks descontraídos e cheios de estilo.",
+			"detailedDescription": "Confeccionado em tecido leve com estampa moderna de efeito manchado, este vestido é perfeito para dias quentes. Caimento fluido e confortável para diversas ocasiões.",
+			"price": 89.9,
+			"size": ["M", "G"],
+			"color": "#392620",
+			"material": "Algodão",
+			"category": "vestido",
+			"image1": "images/V-manchado-1.webp",
+			"image2": "images/V-manchado-2.webp",
+			"image3": "images/V-manchado-3.webp",
+			"available": true,
+			"new": false,
+			"collectionId": 4
+		  },
+		  {
+			"name": "Biquíni Azul Estampado",
+			"description": "Biquíni azul com estampa moderna, ideal para mergulhos e dias de sol.",
+			"detailedDescription": "Feito em lycra de secagem rápida com estampa geométrica contemporânea. Oferece sustentação e conforto para atividades aquáticas ou relaxamento à beira da piscina.",
+			"price": 139.9,
+			"size": ["P", "M", "G"],
+			"color": "#191970",
+			"material": "Lycra",
+			"category": "biquini",
+			"image1": "images/biquiniAzul_estampado-1.jpg",
+			"image2": "images/biquiniAzul_estampado-2.jpg",  
+			"image3": "images/biquiniAzul_estampado-3.jpg",
+			"available": true,
+			"new": true,
+			"collectionId": 2
+		  },
+		  {
+			"name": "Canga Amarela",
+			"description": "Canga amarela vibrante para praia, piscina ou como acessório.",
+			"detailedDescription": "Feita em algodão macio e absorvente, esta canga é versátil e prática. Pode ser usada como toalha, saída de praia ou acessório para complementar seu look.",
+			"price": 69.9,
+			"size": "",
+			"color": "#ffff00",
+			"material": "Algodão",
+			"category": "canga",
+			"image1": "images/canga-amarela-2.jpg",
+			"image2": "images/canga-amarela-1.webp",
+			"image3": "images/canga-amarela-3.jpg",
+			"available": true,
+			"new": true,
+			"collectionId": 2
+		  },
+		  {
+			"name": "Saída de Praia Azul",
+			"description": "Saída de praia azul, leve e confortável para momentos à beira-mar.",
+			"detailedDescription": "Confeccionada em algodão leve e fluido, esta saída de praia oferece conforto e elegância. Perfeita para cobrir o corpo após o banho com estilo e sofisticação.",
+			"price": 89.9,
+			"size": ["P", "M", "G"],
+			"color": "#191970",
+			"material": "Algodão",
+			"category": "saida_praia",
+			"image1": "images/saida_de_praia_Azul_1.jpg",
+			"image2": "images/saida_de_praia_Azul_2.webp",  
+			"image3": "images/saida_de_praia_Azul_3.webp",
+			"available": true,
+			"new": false,
+			"collectionId": 2
+		  },
+		  {
+			"name": "Saída de Praia Verde",
+			"description": "Saída de praia verde, fresca e elegante para o pós-banho.",
+			"detailedDescription": "Feita em algodão respirável de secagem rápida, esta saída de praia é ideal para momentos de relaxamento. Modelagem solta que proporciona conforto e movimento livre.",
+			"price": 109.9,
+			"size": ["M", "G"],
+			"color": "#0c6f72",
+			"material": "Algodão",
+			"category": "saida_praia",
+			"image1": "images/saida_de_praia_Verde_1.jpg",
+			"image2": "images/saida_de_praia_Verde_2.jpg",
+			"image3": "images/saida_de_praia_Verde_3.jpg",
+			"available": true,
+			"new": true,
+			"collectionId": 2
+		  },
+		  {
+			"name": "Vestido Amarelo",
+			"description": "Vestido amarelo vibrante, perfeito para looks de verão.",
+			"detailedDescription": "Confeccionado em algodão leve com tom amarelo vibrante, este vestido é ideal para dias ensolarados. Caimento fluido e confortável para diversas ocasiões casuais.",
+			"price": 189.9,
+			"size": ["P", "M", "G"],
+			"color": "#ffff00",
+			"material": "Algodão",
+			"category": "vestido",
+			"image1": "images/V-amarelo-1.webp",
+			"image2": "images/V-amarelo-2.webp",
+			"image3": "images/V-amarelo-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 2
+		  },
+		  {
+			"name": "Vestido Amarelo Longo",
+			"description": "Vestido longo amarelo, elegante e confortável para diversas ocasiões.",
+			"detailedDescription": "Vestido longo em algodão com modelagem elegante e tom amarelo vibrante. Perfeito para eventos casuais ou momentos especiais, oferecendo conforto e estilo.",
+			"price": 129.9,
+			"size": ["M", "G"],
+			"color": "#ffff00",
+			"material": "Algodão",
+			"category": "vestido",
+			"image1": "images/vestido-amarelo-1.webp",
+			"image2": "images/vestido-amarelo-2.webp",
+			"image3": "images/vestido-amarelo-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 2
+		  },
+		  {
+			"name": "Bolsa Branca",
+			"description": "Bolsa branca prática e elegante para complementar seus looks.",
+			"detailedDescription": "Confeccionada em algodão com acabamento resistente, esta bolsa é ideal para o dia a dia. Design espaçoso e alças confortáveis para uso prático.",
+			"price": 89.9,
+			"size": "",
+			"color": "#ffffff",
+			"material": "Algodão",
+			"category": "bolsa",
+			"image1": "images/bolsa-branca-1.webp",
+			"image2": "images/bolsa-branca-2.webp",
+			"image3": "images/bolsa-branca-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 3
+		  },
+		  {
+			"name": "Bolsa Verde",
+			"description": "Bolsa verde espaçosa para levar todos os seus pertences com estilo.",
+			"detailedDescription": "Feita em algodão durável com tons verdes vibrantes, esta bolsa oferece amplo espaço interno. Perfeita para praia, viagens ou uso cotidiano.",
+			"price": 99.9,
+			"size": "",
+			"color": "#0c6f72",
+			"material": "Algodão",
+			"category": "bolsa",
+			"image1": "images/bolsa-verde-G-1.webp",
+			"image2": "images/bolsa-verde-G-2.webp",
+			"image3": "images/bolsa-verde-G-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 3
+		  },
+		  {
+			"name": "Vestido Preto",
+			"description": "Vestido preto elegante e versátil para diversas ocasiões.",
+			"detailedDescription": "Confeccionado em algodão com modelagem clássica em preto, este vestido é um básico atemporal. Ideal para eventos casuais ou momentos especiais.",
+			"price": 149.9,
+			"size": ["P", "M", "G"],
+			"color": "#000000",
+			"material": "Algodão",
+			"category": "vestido",
+			"image1": "images/vestido-preto-1.webp",
+			"image2": "images/vestido-preto-2.webp",
+			"image3": "images/vestido-preto-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 1
+		  },
+		  {
+			"name": "Biquíni Azul",
+			"description": "Biquíni azul elegante com modelagem moderna e confortável.",
+			"detailedDescription": "Confeccionado em lycra de alta qualidade, este biquíni oferece ajuste perfeito e sustentação. Ideal para dias de praia ou piscina com estilo e conforto.",
+			"price": 129.9,
+			"size": ["P", "M", "G"],
+			"color": "#00bfff",
+			"material": "Lycra",
+			"category": "biquini",
+			"image1": "images/BiquiniAzul_1.jpg",
+			"image2": "images/BiquiniAzul_2.webp",
+			"image3": "images/BiquiniAzul_3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 1
+		  },
+		  {
+			"name": "Biquíni Branco",
+			"description": "Biquíni branco clássico e versátil para momentos de lazer.",
+			"detailedDescription": "Feito em lycra com modelagem atemporal, este biquíni branco combina com qualquer ambiente. Confortável e com boa sustentação para diversas atividades.",
+			"price": 119.9,
+			"size": ["P", "M", "G"],
+			"color": "#ffffff",
+			"material": "Lycra",
+			"category": "biquini",
+			"image1": "images/BiquiniBranco_1.webp",
+			"image2": "images/BiquiniBranco_2.webp",
+			"image3": "images/BiquiniBranco_3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 1
+		  },
+		  {
+			"name": "Bolsa Azul",
+			"description": "Bolsa azul prática e estilosa para acompanhar seus looks.",
+			"detailedDescription": "Confeccionada em algodão resistente, esta bolsa azul é ideal para o dia a dia. Design funcional com espaço suficiente para seus pertences.",
+			"price": 89.9,
+			"size": "",
+			"color": "#191970",
+			"material": "Algodão",
+			"category": "bolsa",
+			"image1": "images/bolsa-azul-1.webp",
+			"image2": "images/bolsa-azul-2.webp",
+			"image3": "images/bolsa-azul-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 1
+		  },
+		  {
+			"name": "Bolsa Azul Grande",
+			"description": "Bolsa azul espaçosa para viagens ou dias de praia.",
+			"detailedDescription": "Feita em algodão durável, esta bolsa grande oferece amplo espaço interno. Perfeita para levar todos os itens necessários com praticidade.",
+			"price": 109.9,
+			"size": "",
+			"color": "#191970",
+			"material": "Algodão",
+			"category": "bolsa",
+			"image1": "images/bolsa-azul-G-1.webp",
+			"image2": "images/bolsa-azul-G-2.webp",
+			"image3": "images/bolsa-azul-G-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 1
+		  },
+		  {
+			"name": "Conjunto Azul",
+			"description": "Conjunto azul coordenado para looks elegantes e práticos.",
+			"detailedDescription": "Confeccionado em algodão com tom azul vibrante, este conjunto oferece versatilidade e conforto. Ideal para diversas ocasiões do dia a dia.",
+			"price": 169.9,
+			"size": ["P", "M", "G"],
+			"color": "#00bfff",
+			"material": "Algodão",
+			"category": "conjunto",
+			"image1": "images/conjun-azul-1.webp",
+			"image2": "images/conjun-azul-2.webp",
+			"image3": "images/conjun-azul-3.jpg",
+			"available": true,
+			"new": false,
+			"collectionId": 1
+		  },
+		  {
+			"name": "Vestido Kimono Azul",
+			"description": "Vestido kimono azul leve e fluido para sobreposição elegante.",
+			"detailedDescription": "Confeccionado em tecido leve com tom azul sereno, este vestido kimono é perfeito para cobrir o corpo com estilo. Ideal para praia ou looks casuais.",
+			"price": 139.9,
+			"size": ["P", "M", "G"],
+			"color": "#00bfff",
+			"material": "Algodão",
+			"category": "kimono",
+			"image1": "images/SaidaDePraia_kimonoAzul_1.png",
+			"image2": "images/SaidaDePraia_kimonoAzul_2.png",
+			"image3": "images/SaidaDePraia_kimonoAzul_3.png",
+			"available": true,
+			"new": false,
+			"collectionId": 1
+		  },
+		  {
+			"name": "Chinelo Branco Pérola",
+			"description": "Chinelo branco elegante com detalhes perolados para um toque sofisticado.",
+			"detailedDescription": "Confeccionado em material resistente com acabamento pérola, este chinelo oferece conforto e estilo. Ideal para dias de praia ou uso casual.",
+			"price": 79.9,
+			"size": ["35", "36", "37", "38"],
+			"color": "#ffffff",
+			"material": "",
+			"category": "chinelo",
+			"image1": "images/chinelo-branco-perola-1.jpg",
+			"image2": "images/chinelo-branco-perola-2.jpg",
+			"image3": "images/chinelo-branco-perola-3.jpg",
+			"available": true,
+			"new": true,
+			"collectionId": 1
+		  },
+		  {
+			"name": "Chinelo Nuvem Bege",
+			"description": "Chinelo bege macio e confortável com design inspirado em nuvens.",
+			"detailedDescription": "Feito em material macio e leve, este chinelo oferece máxima conforto para os pés. Design moderno e cores neutras que combinam com qualquer look.",
+			"price": 69.9,
+			"size": ["35", "37", "38"],
+			"color": "#f5f5dc",
+			"material": "",
+			"category": "chinelo",
+			"image1": "images/chinelo-nuvem-bege-1.jpg",
+			"image2": "images/chinelo-nuvem-bege-2.jpg",
+			"image3": "images/chinelo-nuvem-bege-3.jpg",
+			"available": true,
+			"new": true,
+			"collectionId": 5
+		  },
+		  {
+			"name": "Chinelo Puffer Marrom",
+			"description": "Chinelo marrom com design puffer acolchoado e moderno.",
+			"detailedDescription": "Confeccionado com tecnologia puffer, este chinelo marrom oferece conforto e estilo urbano. Ideal para looks casuais e descontraídos.",
+			"price": 89.9,
+			"size": ["37", "38"],
+			"color": "#392620",
+			"material": "",
+			"category": "chinelo",
+			"image1": "images/chinelo-puffer-marrom-1.jpg",
+			"image2": "images/chinelo-puffer-marrom-2.jpg",
+			"image3": "images/chinelo-puffer-marrom-3.jpg",
+			"available": true,
+			"new": true,
+			"collectionId": 5
+		  },
+		  {
+			"name": "Maiô Rosa",
+			"description": "Maiô rosa elegante com modelagem que valoriza o corpo.",
+			"detailedDescription": "Confeccionado em lycra de alta qualidade, este maiô rosa oferece conforto e sustentação. Ideal para natação ou momentos de lazer na água.",
+			"price": 149.9,
+			"size": ["PP", "P", "M", "G", "GG"],
+			"color": "#ff69b4",
+			"material": "Lycra",
+			"category": "maio",
+			"image1": "images/maio-rosa-1.webp",
+			"image2": "images/maio-rosa-2.webp",
+			"image3": "images/maio-rosa-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 3
+		  },
+		  {
+			"name": "Maiô Verde Estampado",
+			"description": "Maiô verde com estampa tropical vibrante e moderna.",
+			"detailedDescription": "Feito em lycra com estampa exclusiva, este maiô verde combina estilo e funcionalidade. Modelagem confortável para diversas atividades aquáticas.",
+			"price": 159.9,
+			"size": ["PP", "P", "M", "G", "GG"],
+			"color": "#0c6f72",
+			"material": "Lycra",
+			"category": "maio",
+			"image1": "images/maio-verde-estampado-1.webp",
+			"image2": "images/maio-verde-estampado-2.webp",
+			"image3": "images/maio-verde-estampado-3.webp",
+			"available": true,
+			"new": false,
+			"collectionId": 3
+		  },
+		  {
+			"name": "Saia Longa Verde",
+			"description": "Saia longa verde fluida e elegante para looks sofisticados.",
+			"detailedDescription": "Confeccionada em tecido leve com tom verde sereno, esta saia longa oferece movimento e elegância. Perfeita para ocasiões especiais ou uso casual.",
+			"price": 129.9,
+			"size": ["PP", "P", "M", "G", "GG"],
+			"color": "#0c6f72",
+			"material": "Algodão",
+			"category": "saia",
+			"image1": "images/saia-longa-verde-1.webp",
+			"image2": "images/saia-longa-verde-2.webp",
+			"image3": "images/saia-longa-verde-3.webp",
+			"available": true,
+			"new": false,
+			"collectionId": 3
+		  },
+		  {
+			"name": "Saia Preta Curta",
+			"description": "Saia preta curta versátil para compor diversos looks.",
+			"detailedDescription": "Feita em algodão com modelagem curta e tom preto clássico, esta saia é um básico atemporal. Ideal para looks casuais ou eventos informais.",
+			"price": 99.9,
+			"size": ["PP", "P", "M", "G", "GG"],
+			"color": "#000000",
+			"material": "Algodão",
+			"category": "saia",
+			"image1": "images/saia-preta-curta-1.webp",
+			"image2": "images/saia-preta-curta-2.webp",
+			"image3": "images/saia-preta-curta-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 4
+		  },
+		  {
+			"name": "Sandália Babados Bege",
+			"description": "Sandália bege romântica com detalhes em babados delicados.",
+			"detailedDescription": "Confeccionada com babados elegantes em tom bege, esta sandália oferece feminilidade e conforto. Ideal para looks românticos e especiais.",
+			"price": 119.9,
+			"size": ["35", "36", "37"],
+			"color": "#f5f5dc",
+			"material": "",
+			"category": "sandalia",
+			"image1": "images/sandalia-babados-bege-1.jpg",
+			"image2": "images/sandalia-babados-bege-2.jpg",
+			"image3": "images/sandalia-babados-bege-3.jpg",
+			"available": true,
+			"new": true,
+			"collectionId": 5
+		  },
+		  {
+			"name": "Sandália Rasteira de Conchas Marrom",
+			"description": "Sandália rasteira marrom com detalhes em conchas naturais.",
+			"detailedDescription": "Feita com detalhes em conchas e tom marrom terroso, esta sandália rasteira traz um toque natural e descontraído. Confortável para o dia a dia.",
+			"price": 89.9,
+			"size": ["35", "36", "37", "38", "40"],
+			"color": "#392620",
+			"material": "",
+			"category": "sandalia",
+			"image1": "images/sandalia-rasteira-de-conchas-marrom-1.jpg",
+			"image2": "images/sandalia-rasteira-de-conchas-marrom-2.jpg",
+			"image3": "images/sandalia-rasteira-de-conchas-marrom-3.jpg",
+			"available": true,
+			"new": true,
+			"collectionId": 1
+		  },
+		  {
+			"name": "Short Branco",
+			"description": "Short branco versátil e fresco para dias quentes.",
+			"detailedDescription": "Confeccionado em algodão leve, este short branco é ideal para verão. Modelagem confortável que combina com diversas ocasiões casuais.",
+			"price": 79.9,
+			"size": ["PP", "P", "M", "G", "GG"],
+			"color": "#ffffff",
+			"material": "Algodão",
+			"category": "short",
+			"image1": "images/short-branco-1.webp",
+			"image2": "images/short-branco-2.webp",
+			"image3": "images/short-branco-3.webp",
+			"available": true,
+			"new": true,
+			"collectionId": 4
+		  },
+		  {
+			"name": "Short Estampado Verde",
+			"description": "Short verde com estampa tropical e descontraída.",
+			"detailedDescription": "Feito em algodão com estampa verde vibrante, este short traz alegria e estilo para seus looks de verão. Confortável e prático para o dia a dia.",
+			"price": 89.9,
+			"size": ["PP", "P", "M", "G", "GG"],
+			"color": "#0c6f72",
+			"material": "Algodão",
+			"category": "short",
+			"image1": "images/short-estampado-verde-1.webp",
+			"image2": "images/short-estampado-verde-2.webp",
+			"image3": "images/short-estampado-verde-3.webp",
+			"available": true,
+			"new": false,
+			"collectionId": 3
+		  },
+		  {
+			"name": "Short Estampado Azul",
+			"description": "Short azul com estampa moderna e juvenil.",
+			"detailedDescription": "Confeccionado em algodão com estampa azul contemporânea, este short é perfeito para dias descontraídos. Modelagem confortável e estilo atual.",
+			"price": 89.9,
+			"size": ["PP", "P", "M", "G", "GG"],
+			"color": "#191970",
+			"material": "Algodão",
+			"category": "short",
+			"image1": "images/short-estampado-azul-1.webp",
+			"image2": "images/short-estampado-azul-2.webp",
+			"image3": "images/short-estampado-azul-3.webp",
+			"available": true,
+			"new": false,
+			"collectionId": 1
+		  },
+		  {
+			"name": "Sombrinha em Fita",
+			"description": "Sombrinha elegante com detalhes em fita para proteção solar.",
+			"detailedDescription": "Confeccionada com tecido tecnológico e detalhes em fita, esta sombrinha oferece proteção UV com estilo. Ideal para dias ensolarados na praia.",
+			"price": 139.9,
+			"size": [""],
+			"color": "#f5f5dc",
+			"material": "Poliéster",
+			"category": "acessorio",
+			"image1": "images/sombrinha-em-fita-1.webp",
+			"image2": "images/sombrinha-em-fita-2.webp",
+			"available": true,
+			"new": false,
+			"collectionId": 3
+		  },
+		  {
+			"name": "Viseira Preta",
+			"description": "Viseira preta esportiva para proteção durante atividades ao ar livre.",
+			"detailedDescription": "Feita em material leve e resistente, esta viseira preta oferece proteção solar durante exercícios. Ajuste confortável e design esportivo.",
+			"price": 59.9,
+			"size": [""],
+			"color": "#000000",
+			"material": "Poliéster",
+			"category": "acessorio",
+			"image1": "images/viseira-preta-1.webp",
+			"image2": "images/viseira-preta-2.webp",
+			"image3": "images/viseira-preta-3.webp",
+			"available": true,
+			"new": false,
+			"collectionId": 5
+		  }
+	];
+
+	for (const produto of produtos) {
+		const imageData = {};
+
+		// Converte cada imagem para base64
+		produto.images.forEach((file, index) => {
+			const filePath = path.join(dir, file);
+
+			if (fs.existsSync(filePath)) {
+				const buffer = fs.readFileSync(filePath);
+				const mimeType = mime.lookup(filePath) || 'image/jpeg';
+				const content = buffer.toString('base64');
+				imageData[`image${index + 1}`] = `data:${mimeType};base64,${content}`;
+			} else {
+				console.warn(`⚠️ Arquivo não encontrado: ${filePath}`);
+				imageData[`image${index + 1}`] = null;
+			}
+		});
+
+		await prisma.product.create({
+			data: {
+				name: produto.name,
+				description: produto.description,
+				detailedDescription: produto.detailedDescription,
+				price: produto.price,
+				size: produto.size,
+				color: produto.color,
+				material: produto.material,
+				category: produto.category,
+				available: produto.available,
+				new: produto.new,
+				collectionId: produto.collectionId,
+				...imageData // adiciona image1, image2, image3...
+			},
+		});
+
+		console.log(`✅ Produto criado: ${produto.name}`);
+	}
+}
+
+main()
+	.then(async () => {
+		console.log('🌱 Seed de produtos finalizado!');
+		await prisma.$disconnect();
+	})
+	.catch(async (e) => {
+		console.error(e);
+		await prisma.$disconnect();
+		process.exit(1);
+	});

@@ -1,0 +1,105 @@
+### Obter a lista de produtos com paginação
+GET http://localhost:3000/products?page=1&limit=2
+
+### Detalhes de produto
+GET http://localhost:3000/products/1
+
+### com filtro por categoria
+GET http://localhost:3000/products?page=1&limit=2&categoria=chinelo
+
+### com filtro por coleção
+GET http://localhost:3000/products?colecao=Maré Serena
+
+###
+GET http://localhost:3000/products?colecao=Maré Serena
+
+###
+GET http://localhost:3000/products?colecao=mare serena
+
+###
+GET http://localhost:3000/products?colecao=mare%20serena
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 💰 Filtros por preço
+### até R$50
+GET http://localhost:3000/products?preco=ate50
+
+### entre R$50 e R$100
+GET http://localhost:3000/products?preco=50a100
+
+# entre R$100 e R$150
+GET http://localhost:3000/products?preco=100a150
+
+# entre R$150 e R$200
+GET http://localhost:3000/products?preco=150a200
+
+# acima de R$200
+GET http://localhost:3000/products?preco=200mais
+
+
+### 🧵 Filtro por material
+GET http://localhost:3000/products?material=Algodão
+
+GET http://localhost:3000/products?material=Poliéster
+
+
+### 📏 Filtro por tamanhos (um ou vários)
+
+### apenas tamanho M
+GET http://localhost:3000/products?tamanhos=M
+
+### tamanhos P e M
+GET http://localhost:3000/products?tamanhos=P,M
+
+### tamanhos P, M, G
+GET http://localhost:3000/products?tamanhos=P,M,G
+
+
+### 🎨 Filtro por cores (valores HEX)
+### cor branca
+GET http://localhost:3000/products?cores=#ffffff
+
+### cor cinza
+GET http://localhost:3000/products?cores=#191970
+
+### mais de uma cor
+GET http://localhost:3000/products?cores=%23ffffff,%23696969
+
+
+### 🧩 Combinação de filtros (multi-filtro)
+
+### produtos de algodão entre R$100 e R$200
+GET http://localhost:3000/products?material=Algodão&preco=ate50
+
+### produtos da coleção Maré Serena com material Poliéster
+GET http://localhost:3000/products?colecao=Maré%20Serena&material=Poliéster
+
+### produtos da coleção Maré Serena com cor cinza e até R$150
+GET http://localhost:3000/products?colecao=Maré%20Serena&cores=%23696969&preco=100a150
+
+### produtos categoria “bata”, tamanhos P e M, material algodão
+GET http://localhost:3000/products?categoria=bata&tamanhos=P,M&material=Algodão
+
+### produtos da coleção Maré Serena, tamanhos M e G, preço acima de 150
+GET http://localhost:3000/products?colecao=mare%20serena&tamanhos=M,G&preco=150a200
+
+
+### 📊 Paginação com filtros
+GET http://localhost:3000/products?page=2&limit=2&colecao=mare%20serena&preco=50a100
+
+
+### 🎨 Listar todas as cores disponíveis (nova rota)
+GET http://localhost:3000/products/cores

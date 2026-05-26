@@ -1,0 +1,17 @@
+### Cadastrar um endereço
+POST http://localhost:3000/addresses
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "cep": "11680-000",
+  "cidade": "Ubatuba",
+  "estado": "SP",
+  "bairro": "Centro",
+  "rua": "Rua das Flores",
+  "numero": "123",
+  "complemento": "Apto 45"
+}
+
+### DELETAR ENDEREÇO
+DELETE http://localhost:3000/addresses/1

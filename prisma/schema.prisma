@@ -1,0 +1,129 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  username  String    @unique
+  password  String
+  email     String
+  birthdate DateTime?
+  cpf       String?
+  gender    String?
+  phone     String?
+  createdAt DateTime  @default(now())
+  reviews   Review[]
+  addresses Address[]
+  pedidos   Pedido[]
+  cartItems CartItem[]  // ✅ Relacionamento com sacola
+}
+
+model Product {
+  id                  Int         @id @default(autoincrement())
+  name                String
+  description         String?     @db.Text
+  detailedDescription String?     @db.Text
+  price               Decimal?    @db.Decimal(8, 2)
+  size                Json?
+  color               String?
+  material            String?
+  category            String?
+  image1              String?     @db.LongText
+  image2              String?     @db.LongText
+  image3              String?     @db.LongText
+  image4              String?     @db.LongText
+  image5              String?     @db.LongText
+  available           Boolean?
+  new                 Boolean?
+  collectionId        Int?
+  collection          Collection? @relation(fields: [collectionId], references: [id])
+  reviews             Review[]
+  cartItems           CartItem[]  // ✅ Relacionamento com sacola
+  createdAt           DateTime    @default(now())
+}
+
+model Collection {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String?   @db.Text
+  image       String?   @db.LongText
+  products    Product[]
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  userId    Int
+  comentario String  @db.Text
+  estrelas  Int
+  dataDePublicacao DateTime @default(now())
+  
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([productId])
+  @@index([userId])
+}
+
+model Address {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  cep         String
+  cidade      String
+  estado      String
+  bairro      String
+  rua         String
+  numero      String
+  complemento String?
+  createdAt   DateTime @default(now())
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pedidos     Pedido[]
+  
+  @@index([userId])
+}
+
+model Pedido {
+  id                  Int      @id @default(autoincrement())
+  userId              Int
+  numeroIdentificador String
+  timestamp           BigInt
+  data                String
+  hora                String
+  pagamento           String
+  parcelas            Int      @default(1)
+  enderecoId          Int
+  etapas              Json
+  itens               Json
+  createdAt           DateTime @default(now())
+  
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  endereco            Address  @relation(fields: [enderecoId], references: [id])
+  
+  @@index([userId])
+  @@index([enderecoId])
+}
+
+model CartItem {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  productId  Int
+  quantidade Int      @default(1)
+  tamanho    String?
+  cor        String?
+  createdAt  DateTime @default(now())
+  
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+  @@index([productId])
+  @@index([userId, productId])
+}

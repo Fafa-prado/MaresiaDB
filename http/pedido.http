@@ -1,0 +1,74 @@
+### 1. CRIAR NOVO PEDIDO
+POST http://localhost:3000/pedidos
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "numeroIdentificador": "ABC12345",
+  "timestamp": 1700000000000,
+  "data": "23/11/2025",
+  "hora": "14:30",
+  "pagamento": "cartao",
+  "parcelas": 3,
+  "enderecoId": 1,
+  "itens": [
+    {
+      "id": 1,
+      "nome": "Vestido Saída Floral",
+      "descricao": "Vestido leve com estampa floral",
+      "preco": 159.90,
+      "quantidade": 1,
+      "medida": "P",
+      "cor": "Azul"
+    },
+    {
+      "id": 2,
+      "nome": "Canga Estampada",
+      "descricao": "Canga multiuso",
+      "preco": 69.90,
+      "quantidade": 2,
+      "cor": "Verde"
+    }
+  ],
+  "etapas": [0, 0, 0, 0]
+}
+
+### 2. CRIAR PEDIDO COM PIX (À vista)
+POST http://localhost:3000/pedidos
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "numeroIdentificador": "XYZ98765",
+  "pagamento": "pix",
+  "parcelas": 1,
+  "enderecoId": 1,
+  "itens": [
+    {
+      "id": 3,
+      "nome": "Chapéu de Praia",
+      "preco": 89.90,
+      "quantidade": 1
+    }
+  ]
+}
+
+### 2.1 CRIAR PEDIDO PARCELADO EM 12X
+POST http://localhost:3000/pedidos
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "numeroIdentificador": "PAR12345",
+  "pagamento": "cartao",
+  "parcelas": 12,
+  "enderecoId": 1,
+  "itens": [
+    {
+      "id": 4,
+      "nome": "Kit Praia Completo",
+      "preco": 599.90,
+      "quantidade": 1
+    }
+  ]
+}
